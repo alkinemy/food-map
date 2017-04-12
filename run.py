@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from food_map import app
+from app import create_app
 
 
 if __name__ == "__main__":
-	app.run()
+	create_app().run()
