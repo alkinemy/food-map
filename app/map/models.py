@@ -1,5 +1,7 @@
 from .. import db
 
+from datetime import datetime
+
 
 class Comment(db.EmbeddedDocument):
 	name = db.StringField(required=True)
@@ -14,10 +16,7 @@ class Restaurant(db.Document):
 	url = db.StringField()
 	location = db.GeoPointField(required=True)
 	price = db.IntField()
+	good = db.IntField(default=0)
+	bad = db.IntField(default=0)
 	comments = db.EmbeddedDocumentListField(Comment)
-	creation = db.DateTimeField()
-
-
-
-
-
+	creation = db.DateTimeField(default=datetime.now)

@@ -1,5 +1,4 @@
 from . import food_map
-
 from .models import Restaurant, Comment
 
 from flask import render_template, redirect
