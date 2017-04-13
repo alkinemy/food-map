@@ -24,5 +24,7 @@ def create_app():
 
 	from app.map import food_map
 	app.register_blueprint(food_map)
+	from app.restaurant import food_restaurant
+	app.register_blueprint(food_restaurant)
 
 	return app

@@ -11,6 +11,11 @@ def show_map():
 	return render_template('food-map.html', map_client_id=MAP_CLIENT_ID, restaurants=restaurants)
 
 
+
+
+
+
+
 @food_map.route('/test')
 def test():
 	Restaurant(name='hello', categories=['중식', '한식'], location=[37.5157873, 127.0991124], comments=[Comment(name='익명', content='테스트')]).save()
