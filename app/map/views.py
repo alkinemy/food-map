@@ -1,6 +1,6 @@
 from flask import render_template
 
-from app.restaurant.models import Restaurant, Comment
+from app.restaurant.models import Restaurant
 from . import food_map
 from .. import MAP_CLIENT_ID
 

@@ -4,15 +4,15 @@ from .models import Restaurant, Comment
 from flask import redirect
 
 
-@food_restaurant.route('/restaurants/<restaurant_id>/feedback/good')
+@food_restaurant.route('/restaurants/<restaurant_id>/feedback/good', methods=['POST'])
 def give_good_feedback(restaurant_id):
-	# TODO 구현
+	Restaurant.objects(id=restaurant_id).update_one(inc__good=1)
 	return redirect('/')
 
 
-@food_restaurant.route('/restaurant/<restaurant_id>/feedback/bac')
+@food_restaurant.route('/restaurants/<restaurant_id>/feedback/bad', methods=['POST'])
 def give_bad_feedback(restaurant_id):
-	# TODO 구현
+	Restaurant.objects(id=restaurant_id).update_one(inc__bad=1)
 	return redirect('/')
 
 
