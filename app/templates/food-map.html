@@ -6,34 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <title>음식 지도</title>
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId={{ map_client_id }}"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId={{ map_client_id }}&callback=initMap"></script>
 </head>
 <body>
 <div id="wrapper">
     <div id="map" style="position: absolute;height: 100%;width: 100%;"></div>
 </div>
 
-<!--<script type="text/javascript" src="/static/js/map.js"></script>-->
 <script>
-var mapOptions = {
-    center: new naver.maps.LatLng(37.5157873, 127.0991124),
-    zoom: 12
-};
-var map = new naver.maps.Map('map', mapOptions);
+var map = null;
 
-var companyMarkerOptions = {
-    position: new naver.maps.LatLng(37.5157873, 127.0991124),
-    map: map
-};
-new naver.maps.Marker(companyMarkerOptions);
+function initMap() {
+    var mapOptions = {
+        center: new naver.maps.LatLng(37.5157873, 127.0991124),
+        zoom: 12
+    };
+    map = new naver.maps.Map('map', mapOptions);
 
-{% for restaurant in restaurants %}
+    var companyMarkerOptions = {
+        position: new naver.maps.LatLng(37.5157873, 127.0991124),
+        map: map
+    };
+    new naver.maps.Marker(companyMarkerOptions);
+
+    {% for restaurant in restaurants %}
     new naver.maps.Marker({
         position: new naver.maps.LatLng( {{ restaurant.location[1] }} , {{ restaurant.location[0] }} ),
-        map: map
+        map: map,
+        title: '{{ restaurant.name }}',
+        animation: naver.maps.Animation.DROP
     });
-{% endfor %}
+    {% endfor %}
+}
+
+
 
 </script>
+<!--<script type="text/javascript" src="/static/js/map.js"></script>-->
 </body>
 </html>
