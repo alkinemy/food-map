@@ -5,7 +5,7 @@ from datetime import datetime
 
 class Comment(db.EmbeddedDocument):
 	name = db.StringField(required=True)
-	password = db.PasswordField(required=True)
+	password = db.StringField(required=True)
 	content = db.StringField(required=True)
 	creation = db.DateTimeField(default=datetime.now)
 
@@ -22,3 +22,10 @@ class Restaurant(db.Document):
 	bad = db.IntField(default=0)
 	comments = db.EmbeddedDocumentListField(Comment)
 	creation = db.DateTimeField(default=datetime.now)
+
+
+# from flask_mongoengine.wtf import model_form
+# from wtforms import PasswordField
+#
+# user = model_form(Comment)
+# user.password = PasswordField('Password')
