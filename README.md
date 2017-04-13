@@ -2,5 +2,5 @@
 
 ```
 $ pipenv install
-$ pipenv run python run.py
+$ MAP_CLIENT_ID=YOUR_CLIENT_ID pipenv run python run.py
 ```

@@ -6,7 +6,7 @@ import os
 
 db = MongoEngine()
 
-MAP_CLIENT_ID = os.environ.get('MAP_CLIENT_KEY')
+MAP_CLIENT_ID = os.environ.get('MAP_CLIENT_ID')
 
 
 def create_app():
