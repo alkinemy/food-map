@@ -30,12 +30,17 @@ function initMap() {
     new naver.maps.Marker(companyMarkerOptions);
 
     {% for restaurant in restaurants %}
-    new naver.maps.Marker({
-        position: new naver.maps.LatLng( {{ restaurant.location[1] }} , {{ restaurant.location[0] }} ),
-        map: map,
-        title: '{{ restaurant.name }}',
-        animation: naver.maps.Animation.DROP
-    });
+    {
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng( {{ restaurant.location[1] }} , {{ restaurant.location[0] }} ),
+            map: map,
+            title: '{{ restaurant.name }}',
+            animation: naver.maps.Animation.DROP
+        });
+        naver.maps.Event.addListener(marker, 'click', function() {
+            alert('{{ restaurant.name }}');
+        });
+    }
     {% endfor %}
 }
 
