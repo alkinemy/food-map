@@ -22,8 +22,15 @@
         <dd>{{ restaurant.address|default('정보 없음', true)}} </dd>
     </dl>
     <dl>
-        <dt>링크</dt>
-        <dd>{{ restaurant.url|default('정보 없음', true) }}</dd>
+        <dt>참고 링크</dt>
+        <dd>
+            {% if restaurant.url %}
+            <!--{{ restaurant.url|default('정보 없음', true) }}-->
+                <a href="{{ restaurant.url }}">{{ restaurant.url }}</a>
+            {% else %}
+                정보 없음
+            {% endif %}
+        </dd>
     </dl>
     <dl>
         <dt>가격대</dt>
@@ -54,7 +61,7 @@
         <dd>신천동이얌</dd>
     </dl>
     <dl>
-        <dt>링크</dt>
+        <dt>참고 링크</dt>
         <dd>http://baego.pa</dd>
     </dl>
     <dl>
