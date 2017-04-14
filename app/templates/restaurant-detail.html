@@ -2,9 +2,9 @@
 <div id="restaurantHeader" class="center">
     <h1>{{ restaurant.name|default('정보 없음', true) }}</h1>
 </div>
-<div id="restaurantRecommend" class="center">
-    <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> <span>{{ restaurant.good|default('0', true) }}</span></a>
-    <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-thumbs-down"></span> <span>{{ restaurant.bad|default('0', true) }}</span></a>
+<div id="restaurantFeedback" class="center">
+    <a id="giveGoodFeedback" class="btn btn-primary" href="#" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-up"></span> <span id="goodFeedbackCount">{{ restaurant.good|default('0', true) }}</span></a>
+    <a id="giveBadFeedback" class="btn btn-danger" href="#" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-down"></span> <span id="badFeedbackCount">{{ restaurant.bad|default('0', true) }}</span></a>
 </div>
 <div id="restaurantInfo">
     <dl>
@@ -34,9 +34,9 @@
 <div id="restaurantHeader" class="center">
     <h1>회사 근처</h1>
 </div>
-<div id="restaurantRecommend" class="center">
-    <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> <span>1000</span></a>
-    <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-thumbs-down"></span> <span>300</span></a>
+<div id="restaurantFeedback" class="center">
+    <a id="giveGoodFeedback" class="btn btn-primary" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> <span id="goodFeedbackCount">1000</span></a>
+    <a id="giveBadFeedback" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-thumbs-down"></span> <span id="badFeedbackCount">300</span></a>
 </div>
 <div id="restaurantInfo">
     <dl>
