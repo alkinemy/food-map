@@ -1,0 +1,40 @@
+var map = null;
+
+function initMap() {
+    var mapOptions = {
+        center: new naver.maps.LatLng(37.5157873, 127.0991124),
+        minZoom: 10,
+        maxBounds: new naver.maps.LatLngBounds(new naver.maps.LatLng(37.491717, 127.039901), new naver.maps.LatLng(37.553497, 127.172326)),
+        zoom: 12
+    };
+    map = new naver.maps.Map('map', mapOptions);
+
+    var companyMarkerOptions = {
+        position: new naver.maps.LatLng(37.5157873, 127.0991124),
+        map: map
+    };
+    new naver.maps.Marker(companyMarkerOptions);
+
+    {% for restaurant in restaurants %}
+    {
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng({{ restaurant.location[1] }}, {{ restaurant.location[0] }}),
+            map: map,
+            title: '{{ restaurant.name }}',
+            animation: naver.maps.Animation.DROP
+        });
+        naver.maps.Event.addListener(marker, 'click', function() {
+            $.ajax({
+                url:'/restaurants/{{ restaurant.id }}'
+            }).done(function(view) {
+                $('#restaurantDetailContent').empty();
+                $('#restaurantDetailContent').append(view);
+                openSideSlide();
+                map.panTo(new naver.maps.LatLng({{ restaurant.location[1] }}, {{ restaurant.location[0] }}));
+            }).fail(function() {
+                alert('뭔가가 잘못됐어요 연락바람ㅠㅠ');
+            });
+        });
+    }
+    {% endfor %}
+}

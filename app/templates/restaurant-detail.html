@@ -1,31 +1,65 @@
+{% if restaurant %}
 <div id="restaurantHeader" class="center">
-    <h1>{{ name|default('회사 근처') }}</h1>
+    <h1>{{ restaurant.name|default('정보 없음', true) }}</h1>
 </div>
 <div id="restaurantRecommend" class="center">
-    <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> <span>{{ good|default('1000') }}</span></a>
-    <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-thumbs-down"></span> <span>{{ bad|default('300') }}</span></a>
+    <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> <span>{{ restaurant.good|default('0', true) }}</span></a>
+    <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-thumbs-down"></span> <span>{{ restaurant.bad|default('0', true) }}</span></a>
 </div>
 <div id="restaurantInfo">
     <dl>
         <dt>카테고리</dt>
         <dd>
-            {% for category in categories|default(['맛있는거']) %}{{ category }} {% endfor %}
+            {% for category in restaurant.categories|default('미분류', true) %}{{ category }} {% endfor %}
         </dd>
     </dl>
     <dl>
         <dt>위치</dt>
-        <dd>{{ site|default('으잉 멀엉')}}</dd>
+        <dd>{{ restaurant.site|default('정보 없음', true)}}</dd>
     </dl>
     <dl>
         <dt>주소</dt>
-        <dd>{{ address|default('신천동이얌')}} </dd>
+        <dd>{{ restaurant.address|default('정보 없음', true)}} </dd>
     </dl>
     <dl>
         <dt>링크</dt>
-        <dd>{{ url|default('http://baego.pa') }}</dd>
+        <dd>{{ restaurant.url|default('정보 없음', true) }}</dd>
     </dl>
     <dl>
         <dt>가격대</dt>
-        <dd>{{ price|default('비싸') }}</dd>
+        <dd>{{ restaurant.price|default('정보 없음', true) }}</dd>
     </dl>
 </div>
+{% else %}
+<div id="restaurantHeader" class="center">
+    <h1>회사 근처</h1>
+</div>
+<div id="restaurantRecommend" class="center">
+    <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> <span>1000</span></a>
+    <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-thumbs-down"></span> <span>300</span></a>
+</div>
+<div id="restaurantInfo">
+    <dl>
+        <dt>카테고리</dt>
+        <dd>
+            맛있는거
+        </dd>
+    </dl>
+    <dl>
+        <dt>위치</dt>
+        <dd>으잉 멀엉</dd>
+    </dl>
+    <dl>
+        <dt>주소</dt>
+        <dd>신천동이얌</dd>
+    </dl>
+    <dl>
+        <dt>링크</dt>
+        <dd>http://baego.pa</dd>
+    </dl>
+    <dl>
+        <dt>가격대</dt>
+        <dd>비싸</dd>
+    </dl>
+</div>
+{% endif %}
