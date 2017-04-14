@@ -42,10 +42,6 @@
                         <ul class="dropdown-menu">
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -87,13 +83,13 @@ function initMap() {
     {% for restaurant in restaurants %}
     {
         var marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng( {{ restaurant.location[1] }} , {{ restaurant.location[0] }} ),
+            position: new naver.maps.LatLng({{ restaurant.location[1] }}, {{ restaurant.location[0] }}),
             map: map,
             title: '{{ restaurant.name }}',
             animation: naver.maps.Animation.DROP
         });
         naver.maps.Event.addListener(marker, 'click', function() {
-            alert('{{ restaurant.name }}');
+            map.panTo(new naver.maps.LatLng({{ restaurant.location[1] }}, {{ restaurant.location[0] }}));
         });
     }
     {% endfor %}
