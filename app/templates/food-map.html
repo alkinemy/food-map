@@ -30,13 +30,7 @@
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId={{ map_client_id }}&callback=initMap"></script>
 </head>
 <body>
-<div id="restaurantDetail" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeSideSlide()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
-</div>
+
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-static-top margin-bottom-0">
         <div class="container">
@@ -56,6 +50,14 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
+
+    <div id="restaurantDetail" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSideSlide()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
 
     <div id="map" style="position: absolute;height: 100%;width: 100%;"></div>
 </div>
