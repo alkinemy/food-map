@@ -20,6 +20,27 @@
     transition: 0.3s;
 }
 
+.sidenav a.btn {
+    padding: 8px 8px 8px 8px;
+    margin: 8px 8px 8px 8px;
+    color: white;
+}
+
+.sidenav h1 {
+    padding: 8px 8px 8px 8px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav .center {
+    display: flex;
+    display: -webkit-flex; /* Safari 8 */
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;         /* Safari 8 */
+    justify-content: center;
+    -webkit-justify-content: center;       /* Safari 8 */
+}
+
 .sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
 }
