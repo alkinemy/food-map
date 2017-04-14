@@ -9,3 +9,12 @@ from .. import MAP_CLIENT_ID
 def show_map():
 	restaurants = Restaurant.objects()
 	return render_template('food-map.html', map_client_id=MAP_CLIENT_ID, restaurants=restaurants)
+
+
+
+
+
+
+@food_map.route('/hello')
+def hello():
+	return 'hello food-map'
