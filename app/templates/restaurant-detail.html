@@ -1,29 +1,31 @@
 <div id="restaurantHeader" class="center">
-    <h1>회사 근처</h1>
+    <h1>{{ name|default('회사 근처') }}</h1>
 </div>
 <div id="restaurantRecommend" class="center">
-    <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> <span>1000</span></a>
-    <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-thumbs-down"></span> <span>300</span></a>
+    <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> <span>{{ good|default('1000') }}</span></a>
+    <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-thumbs-down"></span> <span>{{ bad|default('300') }}</span></a>
 </div>
 <div id="restaurantInfo">
     <dl>
         <dt>카테고리</dt>
-        <dd>점심식사</dd>
+        <dd>
+            {% for category in categories|default(['맛있는거']) %}{{ category }} {% endfor %}
+        </dd>
     </dl>
     <dl>
         <dt>위치</dt>
-        <dd>으잉 멀어</dd>
+        <dd>{{ site|default('으잉 멀엉')}}</dd>
     </dl>
     <dl>
         <dt>주소</dt>
-        <dd>신천동</dd>
+        <dd>{{ address|default('신천동이얌')}} </dd>
     </dl>
     <dl>
         <dt>링크</dt>
-        <dd>http://jumsim.mukza</dd>
+        <dd>{{ url|default('http://baego.pa') }}</dd>
     </dl>
     <dl>
         <dt>가격대</dt>
-        <dd>비싸</dd>
+        <dd>{{ price|default('비싸') }}</dd>
     </dl>
 </div>
