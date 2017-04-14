@@ -21,7 +21,7 @@
 }
 
 .sidenav dt {
-    padding: 4px 4px 4px 32px;
+    padding: 2px 2px 2px 32px;
     font-size: 23px;
     color: #818181;
     display: block;
@@ -29,7 +29,7 @@
 }
 
 .sidenav dd {
-    padding: 4px 4px 4px 32px;
+    padding: 2px 2px 2px 32px;
     font-size: 18px;
     color: #818181;
     display: block;
