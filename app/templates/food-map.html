@@ -12,6 +12,7 @@
     <meta http-equiv="pragma" content="no-cache" />
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='food-map/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='food-map/css/side-slide.css') }}">
 
     <link href="/static/external/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/external/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -29,6 +30,13 @@
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId={{ map_client_id }}&callback=initMap"></script>
 </head>
 <body>
+<div id="restaurantDetail" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeSideSlide()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+</div>
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-static-top margin-bottom-0">
         <div class="container">
@@ -49,10 +57,6 @@
         </div>
     </nav>
 
-
-
-
-
     <div id="map" style="position: absolute;height: 100%;width: 100%;"></div>
 </div>
 
@@ -60,6 +64,8 @@
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="/static/external/js/bootstrap.min.js"></script>
 <script src="/static/external/js/ie10-viewport-bug-workaround.js"></script>
+
+<script src="{{ url_for('static', filename='food-map/js/side-slide.js') }}"></script>
 
 <script>
 var map = null;
@@ -88,6 +94,7 @@ function initMap() {
             animation: naver.maps.Animation.DROP
         });
         naver.maps.Event.addListener(marker, 'click', function() {
+            openSideSlide();
             map.panTo(new naver.maps.LatLng({{ restaurant.location[1] }}, {{ restaurant.location[0] }}));
         });
     }
