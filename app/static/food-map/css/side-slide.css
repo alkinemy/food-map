@@ -54,6 +54,8 @@
     padding: 8px 32px 8px 32px;
     color: #818181;
     display: block;
+    font-weight: bold;
+    font-size: 40px;
 
     margin-top: 10px; !important
     margin-bottom: 5px; !important
@@ -127,4 +129,10 @@
 
 .sidenav fieldset button[type="submit"] {
     float: right;
+}
+
+.sidenav hr {
+    border-top: 1px solid #d9d9d9;
+    margin-bottom: 10px; !important
+    margin-top: 10px; !important
 }

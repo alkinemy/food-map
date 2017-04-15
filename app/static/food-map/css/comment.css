@@ -1,0 +1,27 @@
+#restaurantCommentList {
+    padding: 8px 32px 8px 32px;
+}
+
+.comment {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 10px;
+}
+
+.comment .comment-header {
+    font-size: 20px;
+    color: #818181;
+}
+
+.comment .comment-header .comment-author {
+    font-weight: bold;
+}
+
+.comment .comment-header .comment-date {
+    font-size: 16px;
+}
+
+.comment .comment-content {
+    font-size: 16px;
+    color: #818181;
+}

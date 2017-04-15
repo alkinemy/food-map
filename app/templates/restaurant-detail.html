@@ -22,9 +22,10 @@
     <button id="giveGoodFeedback" class="btn btn-primary" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-up"></span> <span id="goodFeedbackCount">{{ restaurant.good|default('0', true) }}</span></button>
     <button id="giveBadFeedback" class="btn btn-danger" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-down"></span> <span id="badFeedbackCount">{{ restaurant.bad|default('0', true) }}</span></button>
 </div>
+<div class="margin-top-20"></div>
 <div id="restaurantInfo">
-    <dl>
-        <dt>참고 링크</dt>
+    <dl class="dl-horizontal">
+        <dt>참고링크</dt>
         <dd>
             {% if restaurant.url %}
                 <a href="{{ restaurant.url }}">{{ restaurant.url }}</a>
@@ -33,12 +34,13 @@
             {% endif %}
         </dd>
     </dl>
-    <dl>
+    <dl class="dl-horizontal">
         <dt>가격대</dt>
         <dd>{{ restaurant.price|default('정보 없음', true) }}</dd>
     </dl>
 </div>
 <div class="line-break"></div>
+<hr>
 <div id="restaurantComment">
     <div id="restaurantCommentRegister">
         <div class="form-group">
