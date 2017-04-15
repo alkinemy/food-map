@@ -2,4 +2,6 @@
     {% for comment in comments %}
     {% include 'comment.html' %}
     {% endfor %}
+{% else %}
+    <p>코멘트가 없엉</p>
 {% endif %}

@@ -42,16 +42,18 @@
 <div id="restaurantComment">
     <div id="restaurantCommentRegister">
         <div class="form-group">
-            <form id="commentRegisterForm" action="/restaurant/{{ restaurant.id }}/comments" method="post">
+            <form id="commentRegisterForm" action="/restaurants/{{ restaurant.id }}/comments" method="post">
                 <fieldset>
-                    <textarea class="form-control" name="content" rows="3"></textarea>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <input type="hidden" name="password" value="1234"/>
+                    <textarea class="form-control" name="content" rows="3" required></textarea>
                     <button type="submit" class="btn btn-primary">댓글달기</button>
                 </fieldset>
             </form>
         </div>
     </div>
     <div id="restaurantCommentList">
-        {% with comment=restaurant.comment %}
+        {% with comments=restaurant.comments %}
         {% include 'comment-group.html' %}
         {% endwith %}
     </div>

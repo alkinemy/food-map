@@ -1,4 +1,6 @@
 from app import db
+from flask_mongoengine.wtf import model_form
+from wtforms import PasswordField, validators
 
 from datetime import datetime
 
@@ -6,7 +8,7 @@ from datetime import datetime
 class Comment(db.EmbeddedDocument):
 	name = db.StringField(required=True)
 	password = db.StringField(required=True)
-	content = db.StringField(required=True)
+	content = db.StringField(required=True, validators=[validators.InputRequired(message='missing comment content')])
 	creation = db.DateTimeField(default=datetime.now)
 
 
@@ -29,3 +31,6 @@ class Restaurant(db.Document):
 #
 # user = model_form(Comment)
 # user.password = PasswordField('Password')
+
+CommentForm = model_form(Comment, exclude=['name'])
+CommentForm.password = PasswordField('Password')

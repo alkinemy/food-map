@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "47bda4470d49d87c333adaedb211dfd8b2a4c71fc716e6ddad2da2dd5ae5aa79"
+            "sha256": "465af678a346ea6b963aadfc9542473b1393a9a44be8e1618d247b4f65a6c39e"
         },
         "requires": {},
         "sources": [
@@ -31,6 +31,10 @@
         "WTForms": {
             "hash": "sha256:ffdf10bd1fa565b8233380cb77a304cd36fd55c73023e91d4b803c96bc11d46f",
             "version": "==2.1"
+        },
+        "WTForms-JSON": {
+            "hash": "sha256:dd85db3cc60c154fcc6e4245869b0b2eea4188c0b01696c9241e3eb1e254b473",
+            "version": "==0.3.1"
         },
         "Werkzeug": {
             "hash": "sha256:918322630c58fa52b89e14c45de3ad78514e18928dac726060bb89cd647f6b83",

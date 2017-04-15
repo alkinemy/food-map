@@ -32,7 +32,7 @@ function initMap() {
                 openSideSlide();
                 map.panTo(new naver.maps.LatLng({{ restaurant.location[1] }}, {{ restaurant.location[0] }}));
             }).fail(function() {
-                alert('뭔가가 잘못됐어요 연락바람ㅠㅠ');
+                toastr.error('개발자에게 연락주세요 흑흑', '실패했습니다!', {"positionClass": "toast-bottom-center"})
             });
         });
     }
