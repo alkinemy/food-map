@@ -12,7 +12,7 @@
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 32px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
@@ -21,7 +21,7 @@
 }
 
 .sidenav dt {
-    padding: 2px 2px 2px 32px;
+    padding: 2px 32px 2px 32px;
     font-size: 23px;
     color: #818181;
     display: block;
@@ -29,7 +29,7 @@
 }
 
 .sidenav dd {
-    padding: 2px 2px 2px 32px;
+    padding: 2px 32px 2px 32px;
     font-size: 18px;
     color: #818181;
     display: block;
@@ -48,10 +48,34 @@
 }
 
 .sidenav h1 {
-    padding: 8px 8px 8px 8px;
+    padding: 8px 32px 8px 32px;
     color: #818181;
     display: block;
+
+    margin-top: 10px; !important
+    margin-bottom: 5px; !important
 }
+
+.sidenav h2 {
+    padding: 8px 32px 8px 32px;
+    color: #818181;
+    display: block;
+
+    margin-top: 0px; !important
+    margin-bottom: 0px; !important
+}
+
+.sidenav h3 {
+    padding: 8px 32px 8px 32px;
+    color: #818181;
+    display: block;
+
+    margin-top: 0px; !important
+    margin-bottom: 10px; !important
+
+    font-size: 20px; !important
+}
+
 
 .sidenav .center {
     display: flex;
@@ -86,17 +110,18 @@
   width: 100%;
 }
 
-.sidenav h1 {
-    margin-top: 10px; !important
-    margin-bottom: 5px; !important
+.sidenav fieldset {
+    padding: 8px 32px 8px 32px;
 }
 
-.sidenav h2 {
-    margin-top: 0px; !important
-    margin-bottom: 0px; !important
+.sidenav fieldset input {
+    padding-bottom: 8px;
 }
 
-.sidenav h3 {
-    margin-top: 0px; !important
-    margin-bottom: 10px; !important
+.sidenav fieldset textarea {
+    margin-bottom: 8px;
+}
+
+.sidenav fieldset button[type="submit"] {
+    float: right;
 }

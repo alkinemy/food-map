@@ -9,11 +9,13 @@
     </div>
     <div class="line-break"></div>
     <div>
-        {% if restaurant.site %}
-        {{ restaurant.site|default('정보 없음', true)}}
-        {% else %}
-        {{ restaurant.address|default('정보 없음', true)}}
-        {% endif %}
+        <h3>
+            {% if restaurant.site %}
+            {{ restaurant.site|default('정보 없음', true)}}
+            {% else %}
+            {{ restaurant.address|default('정보 없음', true)}}
+            {% endif %}
+        </h3>
     </div>
 </div>
 <div id="restaurantFeedback" class="center">
@@ -36,36 +38,22 @@
         <dd>{{ restaurant.price|default('정보 없음', true) }}</dd>
     </dl>
 </div>
-{% else %}
-<div id="restaurantHeader" class="center">
-    <h1>회사 근처</h1>
-</div>
-<div id="restaurantFeedback" class="center">
-    <a id="giveGoodFeedback" class="btn btn-primary" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> <span id="goodFeedbackCount">1000</span></a>
-    <a id="giveBadFeedback" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-thumbs-down"></span> <span id="badFeedbackCount">300</span></a>
-</div>
-<div id="restaurantInfo">
-    <dl>
-        <dt>카테고리</dt>
-        <dd>
-            맛있는거
-        </dd>
-    </dl>
-    <dl>
-        <dt>위치</dt>
-        <dd>으잉 멀엉</dd>
-    </dl>
-    <dl>
-        <dt>주소</dt>
-        <dd>신천동이얌</dd>
-    </dl>
-    <dl>
-        <dt>참고 링크</dt>
-        <dd>http://baego.pa</dd>
-    </dl>
-    <dl>
-        <dt>가격대</dt>
-        <dd>비싸</dd>
-    </dl>
+<div class="line-break"></div>
+<div id="restaurantComment">
+    <div id="restaurantCommentList">
+        {% with comment=restaurant.comment %}
+        {% include 'comment-group.html' %}
+        {% endwith %}
+    </div>
+    <div id="restaurantCommentRegister">
+        <div class="form-group">
+            <form action="/restaurant/{{ restaurant.id }}/comments" method="post">
+                <fieldset>
+                    <textarea class="form-control" name="content" rows="3"></textarea>
+                    <button type="submit" class="btn btn-primary">입력하기</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </div>
 {% endif %}
