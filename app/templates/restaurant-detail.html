@@ -19,8 +19,8 @@
     </div>
 </div>
 <div id="restaurantFeedback" class="center">
-    <a id="giveGoodFeedback" class="btn btn-primary" href="#" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-up"></span> <span id="goodFeedbackCount">{{ restaurant.good|default('0', true) }}</span></a>
-    <a id="giveBadFeedback" class="btn btn-danger" href="#" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-down"></span> <span id="badFeedbackCount">{{ restaurant.bad|default('0', true) }}</span></a>
+    <button id="giveGoodFeedback" class="btn btn-primary" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-up"></span> <span id="goodFeedbackCount">{{ restaurant.good|default('0', true) }}</span></button>
+    <button id="giveBadFeedback" class="btn btn-danger" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-down"></span> <span id="badFeedbackCount">{{ restaurant.bad|default('0', true) }}</span></button>
 </div>
 <div id="restaurantInfo">
     <dl>
@@ -40,20 +40,20 @@
 </div>
 <div class="line-break"></div>
 <div id="restaurantComment">
+    <div id="restaurantCommentRegister">
+        <div class="form-group">
+            <form id="commentRegisterForm" action="/restaurant/{{ restaurant.id }}/comments" method="post">
+                <fieldset>
+                    <textarea class="form-control" name="content" rows="3"></textarea>
+                    <button type="submit" class="btn btn-primary">댓글달기</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
     <div id="restaurantCommentList">
         {% with comment=restaurant.comment %}
         {% include 'comment-group.html' %}
         {% endwith %}
-    </div>
-    <div id="restaurantCommentRegister">
-        <div class="form-group">
-            <form action="/restaurant/{{ restaurant.id }}/comments" method="post">
-                <fieldset>
-                    <textarea class="form-control" name="content" rows="3"></textarea>
-                    <button type="submit" class="btn btn-primary">입력하기</button>
-                </fieldset>
-            </form>
-        </div>
     </div>
 </div>
 {% endif %}
