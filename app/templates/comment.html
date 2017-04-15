@@ -1,6 +1,9 @@
 {% if comment %}
 <div class="comment col-xs-12">
-    <div class="comment-header col-xs-12"><span class="comment-author">{{ comment.name }}</span> : <span class="comment-date">{{ comment.creation }}</span></div>
+    <div class="comment-header col-xs-12">
+        <span class="comment-author">{{ comment.name }}</span> : <span class="comment-date">{{ comment.creation }}</span>
+        <!--<span><a href="#">&times;</a></span>-->
+    </div>
     <div class="comment-content col-xs-12">{{ comment.content }}</div>
 </div>
 {% endif %}

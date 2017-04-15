@@ -3,5 +3,9 @@
     {% include 'comment.html' %}
     {% endfor %}
 {% else %}
-    <p>코멘트가 없엉</p>
+    <div class="comment col-xs-12">
+        <div class="comment-content col-xs-12">
+            첫 코멘트를 입력해주세요!
+        </div>
+    </div>
 {% endif %}

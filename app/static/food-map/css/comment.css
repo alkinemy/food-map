@@ -9,7 +9,7 @@
 }
 
 .comment .comment-header {
-    font-size: 20px;
+    font-size: 22px;
     color: #818181;
 }
 
@@ -18,10 +18,19 @@
 }
 
 .comment .comment-header .comment-date {
-    font-size: 16px;
+    font-size: 18px;
+}
+
+.comment .comment-header a {
+    padding: 0;
+    display: inline;
+    text-decoration: none;
+    font-size: 22px;
+    color: #818181;
+    transition: 0.3s;
 }
 
 .comment .comment-content {
-    font-size: 16px;
+    font-size: 18px;
     color: #818181;
 }
