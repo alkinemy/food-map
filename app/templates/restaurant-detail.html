@@ -1,6 +1,20 @@
 {% if restaurant %}
 <div id="restaurantHeader" class="center">
-    <h1>{{ restaurant.name|default('정보 없음', true) }}</h1>
+    <div>
+        <h1>{{ restaurant.name|default('정보 없음', true) }}</h1>
+    </div>
+    <div class="line-break"></div>
+    <div>
+        <h2>{% for category in restaurant.categories|default('미분류', true) %}{{ category }} {% endfor %}</h2>
+    </div>
+    <div class="line-break"></div>
+    <div>
+        {% if restaurant.site %}
+        {{ restaurant.site|default('정보 없음', true)}}
+        {% else %}
+        {{ restaurant.address|default('정보 없음', true)}}
+        {% endif %}
+    </div>
 </div>
 <div id="restaurantFeedback" class="center">
     <a id="giveGoodFeedback" class="btn btn-primary" href="#" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-up"></span> <span id="goodFeedbackCount">{{ restaurant.good|default('0', true) }}</span></a>
@@ -8,24 +22,9 @@
 </div>
 <div id="restaurantInfo">
     <dl>
-        <dt>카테고리</dt>
-        <dd>
-            {% for category in restaurant.categories|default('미분류', true) %}{{ category }} {% endfor %}
-        </dd>
-    </dl>
-    <dl>
-        <dt>위치</dt>
-        <dd>{{ restaurant.site|default('정보 없음', true)}}</dd>
-    </dl>
-    <dl>
-        <dt>주소</dt>
-        <dd>{{ restaurant.address|default('정보 없음', true)}} </dd>
-    </dl>
-    <dl>
         <dt>참고 링크</dt>
         <dd>
             {% if restaurant.url %}
-            <!--{{ restaurant.url|default('정보 없음', true) }}-->
                 <a href="{{ restaurant.url }}">{{ restaurant.url }}</a>
             {% else %}
                 정보 없음

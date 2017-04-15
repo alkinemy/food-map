@@ -81,3 +81,22 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+.sidenav .line-break {
+  width: 100%;
+}
+
+.sidenav h1 {
+    margin-top: 10px; !important
+    margin-bottom: 5px; !important
+}
+
+.sidenav h2 {
+    margin-top: 0px; !important
+    margin-bottom: 0px; !important
+}
+
+.sidenav h3 {
+    margin-top: 0px; !important
+    margin-bottom: 10px; !important
+}
