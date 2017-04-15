@@ -26,22 +26,3 @@ def give_bad_feedback(restaurant_id):
 def detail(restaurant_id):
 	restaurant = Restaurant.objects.get(id=restaurant_id)
 	return render_template('restaurant-detail.html', restaurant=restaurant)
-
-
-
-
-
-
-
-
-
-@food_restaurant.route('/test')
-def test():
-	Restaurant(name='hello', categories=['중식', '한식'], location=[37.5157873, 127.0991124], comments=[Comment(name='익명', content='테스트')]).save()
-	return redirect('/')
-
-
-@food_restaurant.route('/restaurants/remove-all')
-def remove_all():
-	Restaurant.objects().delete()
-	return redirect('/')

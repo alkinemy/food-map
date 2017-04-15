@@ -31,6 +31,23 @@
     <![endif]-->
 
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId={{ map_client_id }}&callback=initMap"></script>
+    <style>
+        @font-face {
+            font-family: binggrae;
+            src: url({{ url_for('static', filename='food-map/font/Binggrae.otf') }});
+        }
+
+        @font-face {
+            font-family: binggrae-bold;
+            src: url({{ url_for('static', filename='food-map/font/Binggrae_Bold.otf') }});
+            font-weight: bold;
+        }
+
+        body {
+            font-family: binggrae; !important
+        }
+
+    </style>
 </head>
 <body>
 
