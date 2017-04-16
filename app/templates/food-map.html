@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.css">
 
 
     <link href="/static/external/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <link href="/static/external/css/navbar-static-top.css" rel="stylesheet">
-    <title>음식 지도</title>
+    <title>음식점 지도</title>
     <!--[if lt IE 9]>
     <script src="/static/external/js/ie8-responsive-file-warning.js"></script>
     <![endif]-->
@@ -59,12 +59,12 @@
     <nav class="navbar navbar-inverse navbar-static-top margin-bottom-0">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">신사옥 음식 지도</a>
+                <a class="navbar-brand" href="/">신사옥 음식점 지도</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="#" id="categorySelector">카테고리 선택</a></li>
-                    <li><a href="#" id="contact">문의사항</a></li>
+                    <li><a href="#" id="contactDeveloper">문의사항</a></li>
                     </li>
                 </ul>
             </div><!--/.nav-collapse -->
@@ -97,8 +97,7 @@ $.ajaxSetup({
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
 
 <script src="/static/external/js/ie10-viewport-bug-workaround.js"></script>
 
@@ -110,7 +109,7 @@ $.ajaxSetup({
 
 <script type="text/javascript">
 {% include '/script/map-script.html' %}
-{% include '/script/category-script.html' %}
+{% include '/script/navbar-script.html' %}
 </script>
 </body>
 </html>

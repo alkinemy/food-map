@@ -19,6 +19,14 @@ $(document).ready(function() {
         }
     });
 
+    $('#contactDeveloper').click(function(event) {
+        $.alert({
+            title: '문의사항',
+            content: '{% include 'contact.html' %}',
+            backgroundDismiss: true
+        });
+    });
+
     $('body').on('click', '#categoryAll', function() {
         var checked = $(this).is(":checked");
         if (checked) {
