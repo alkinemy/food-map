@@ -2,6 +2,28 @@ var map = null;
 var markers = [];
 var selectedMarker = null;
 
+var selectedMarkerOption = {
+    icon: {
+        path: [
+            new naver.maps.Point(0, 70), new naver.maps.Point(20, 100), new naver.maps.Point(40, 70),
+            new naver.maps.Point(30, 70), new naver.maps.Point(70, 0), new naver.maps.Point(10, 70)
+        ],
+        style: "closedPath",
+        anchor: new naver.maps.Point(23, 103),
+        fillColor: '#ff0000',
+        fillOpacity: 1,
+        strokeColor: '#000000',
+        strokeStyle: 'solid',
+        strokeWeight: 3
+    },
+    shadow: {
+        url: "/static/food-map/image/shadow-arrow.png",
+        size: new naver.maps.Size(193, 128),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(62, 120)
+    }
+}
+
 function initMap() {
     var mapOptions = {
         center: new naver.maps.LatLng(37.5157873, 127.0991124),
@@ -25,13 +47,22 @@ function initMap() {
             title: '{{ restaurant.name }}',
             animation: naver.maps.Animation.DROP
         });
-        naver.maps.Event.addListener(marker, 'click', function() {
+        naver.maps.Event.addListener(marker, 'click', function(e) {
             $.ajax({
                 url:'/restaurants/{{ restaurant.id }}'
             }).done(function(view) {
+                if (selectedMarker !== null) {
+                    selectedMarker.setIcon(null);
+                    selectedMarker.setShadow(null);
+                }
+                selectedMarker = e.overlay;
+                selectedMarker.setIcon(selectedMarkerOption.icon);
+                selectedMarker.setShadow(selectedMarkerOption.shadow);
+
                 $('#restaurantDetailContent').empty();
                 $('#restaurantDetailContent').append(view);
                 openSideSlide();
+
                 map.panTo(new naver.maps.LatLng({{ restaurant.location[1] }}, {{ restaurant.location[0] }}));
             }).fail(function() {
                 toastr.error('개발자에게 연락주세요 흑흑', '실패했습니다!', {"positionClass": "toast-bottom-center"})
