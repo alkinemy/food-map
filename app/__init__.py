@@ -40,4 +40,6 @@ def create_app():
 	from app.restaurant import food_restaurant
 	app.register_blueprint(food_restaurant)
 
+	app.config['TRAP_BAD_REQUEST_ERRORS'] = True
+
 	return app

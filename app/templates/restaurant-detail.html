@@ -50,7 +50,6 @@
         <div class="form-group">
             <form id="commentRegisterForm" action="/restaurants/{{ restaurant.id }}/comments" method="post">
                 <fieldset>
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                     <input type="hidden" name="password" value="1234"/>
                     <textarea class="form-control" name="content" rows="3" required></textarea>
                     <button type="submit" class="btn btn-primary">댓글달기</button>

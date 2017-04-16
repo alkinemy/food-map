@@ -8,11 +8,13 @@ $(document).ready(function() {
         }).done(function(response) {
             $("#goodFeedbackCount").html(response.good);
             toastr.success('추천하였습니다!', '감사합니다!', {"positionClass": "toast-bottom-center"});
-        }).fail(function(xhr, status, error) {
-            console.log(xhr);
-            console.log(status);
-            console.log(error);
-            toastr.error('개발자에게 연락주세요 흑흑', '실패했습니다!', {"positionClass": "toast-bottom-center"});
+        }).fail(function(xhr) {
+            if (xhr.status === 400) {
+                response = $.parseJSON(xhr.responseText);
+                toastr.error(response.message, '실패했습니다!', {"positionClass": "toast-bottom-center"});
+            } else {
+                toastr.error('개발자에게 연락주세요 흑흑', '실패했습니다!', {"positionClass": "toast-bottom-center"});
+            }
         });
     });
 
@@ -25,11 +27,13 @@ $(document).ready(function() {
         }).done(function(response) {
             $("#badFeedbackCount").html(response.bad);
             toastr.warning('비추천하였습니다!', '감사합니다!', {"positionClass": "toast-bottom-center"});
-        }).fail(function(xhr, status, error) {
-            console.log(xhr);
-            console.log(status);
-            console.log(error);
-            toastr.error('개발자에게 연락주세요 흑흑', '실패했습니다!', {"positionClass": "toast-bottom-center"});
+        }).fail(function(xhr) {
+            if (xhr.status === 400) {
+                response = $.parseJSON(xhr.responseText);
+                toastr.error(response.message, '실패했습니다!', {"positionClass": "toast-bottom-center"});
+            } else {
+                toastr.error('개발자에게 연락주세요 흑흑', '실패했습니다!', {"positionClass": "toast-bottom-center"});
+            }
         });
     });
 
@@ -37,15 +41,9 @@ $(document).ready(function() {
     $('#restaurantDetailContent').on('submit', '#commentRegisterForm', function(event) {
         event.preventDefault();
 
-        var csrfToken = $(this).find('input[name="csrf_token"]').val();
-        var data = toJsonWithoutCsrfToken($(this).serializeArray());
+        var data = toJson($(this).serializeArray());
         console.log(typeof data)
         $.ajax({
-            beforeSend: function(xhr, settings) {
-                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrfToken);
-                }
-            },
             method: 'POST',
             contentType: 'application/json',
             url: $(this).attr('action'),
@@ -60,12 +58,10 @@ $(document).ready(function() {
         });
     });
 
-    function toJsonWithoutCsrfToken(data) {
+    function toJson(data) {
         var result = {}
         data.forEach(function(element) {
-            if (element.name !== 'csrf_token') {
-                result[element.name] = element.value;
-            }
+            result[element.name] = element.value;
         });
         return result;
     }
