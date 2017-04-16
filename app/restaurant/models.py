@@ -26,11 +26,12 @@ class Restaurant(db.Document):
 	creation = db.DateTimeField(default=datetime.now)
 
 
-# from flask_mongoengine.wtf import model_form
-# from wtforms import PasswordField
-#
-# user = model_form(Comment)
-# user.password = PasswordField('Password')
+class FeedbackLog(db.Document):
+	ip = db.StringField(required=True)
+	restaurant_id = db.StringField(required=True)
+	feedback_type = db.StringField(required=True)
+	creation = db.DateTimeField(default=datetime.now)
+
 
 CommentForm = model_form(Comment, exclude=['name'])
 CommentForm.password = PasswordField('Password')
