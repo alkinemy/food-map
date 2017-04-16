@@ -70,6 +70,7 @@ function initMap() {
                 if (selectedMarker !== null) {
                     selectedMarker.setIcon(null);
                     selectedMarker.setShadow(null);
+                    selectedMarker.setZIndex(999);
                 }
                 selectedMarker = e.overlay;
                 selectedMarker.setIcon(selectedMarkerOption.icon);

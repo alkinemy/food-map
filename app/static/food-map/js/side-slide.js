@@ -9,6 +9,8 @@ function closeSideSlide() {
     if (selectedMarker !== null) {
         selectedMarker.setIcon(null);
         selectedMarker.setShadow(null);
+        selectedMarker.setZIndex(999);
+        selectedMarker = null;
     }
 
     $("#restaurantDetail").hide();
