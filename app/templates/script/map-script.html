@@ -98,4 +98,28 @@ function initMap() {
         recognizer.hide();
     });
 
+/*
+    var clusteringMarker = {
+        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(/static/food-map/image/cluster-marker.png);background-size:contain;"></div>',
+        size: N.Size(40, 40),
+        anchor: N.Point(20, 20)
+    }
+
+    var markerClustering = new MarkerClustering({
+        minClusterSize: 2,
+        maxZoom: 15,
+        map: map,
+        markers: markers,
+        disableClickZoom: false,
+        gridSize: 120,
+        icons: [clusteringMarker],
+        indexGenerator: function(count) {
+            return 0;
+        },
+        stylingFunction: function(clusterMarker, count, member) {
+            $(clusterMarker.getElement()).find('div:first-child').text(count);
+        }
+    });
+*/
+
 }
