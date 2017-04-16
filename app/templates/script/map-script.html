@@ -33,6 +33,20 @@ function initMap() {
     };
     map = new naver.maps.Map('map', mapOptions);
 
+    var recognizer = new MarkerOverlapRecognizer({
+        highlightRect: false,
+        tolerance: 5
+    });
+
+    recognizer.setMap(map);
+
+    var bounds = map.getBounds(),
+        southWest = bounds.getSW(),
+        northEast = bounds.getNE(),
+        lngSpan = northEast.lng() - southWest.lng(),
+        latSpan = northEast.lat() - southWest.lat();
+
+
     var companyMarkerOptions = {
         position: new naver.maps.LatLng(37.5157873, 127.0991124),
         icon: '{{ url_for('static', filename='food-map/image/company.png') }}',
@@ -48,7 +62,8 @@ function initMap() {
             title: '{{ restaurant.name }}',
             animation: naver.maps.Animation.DROP
         });
-        naver.maps.Event.addListener(marker, 'click', function(e) {
+
+        marker.addListener('click', function(e) {
             $.ajax({
                 url:'/restaurants/{{ restaurant.id }}'
             }).done(function(view) {
@@ -59,6 +74,7 @@ function initMap() {
                 selectedMarker = e.overlay;
                 selectedMarker.setIcon(selectedMarkerOption.icon);
                 selectedMarker.setShadow(selectedMarkerOption.shadow);
+                selectedMarker.setZIndex(1000);
 
                 $('#restaurantDetailContent').empty();
                 $('#restaurantDetailContent').append(view);
@@ -69,7 +85,17 @@ function initMap() {
                 toastr.error('개발자에게 연락주세요 흑흑', '실패했습니다!', {"positionClass": "toast-bottom-center"})
             });
         });
+
+        recognizer.add(marker);
+
+        window.MARKER = marker;
+
         markers.push(marker);
     }
     {% endfor %}
+
+    naver.maps.Event.addListener(recognizer, 'clickItem', function(e) {
+        recognizer.hide();
+    });
+
 }

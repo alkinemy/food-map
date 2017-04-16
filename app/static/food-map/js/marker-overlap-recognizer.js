@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-var MarkerOverlappingRecognizer = function(opts) {
+var MarkerOverlapRecognizer = function(opts) {
     this._options = $.extend({
         tolerance: 5,
         highlightRect: true,
@@ -45,9 +45,8 @@ var MarkerOverlappingRecognizer = function(opts) {
     this._overlapInfoEl = $('<div style="position:absolute;z-index:100;margin:0;padding:0;display:none;"></div>');
     this._overlapListEl = $('<div style="position:absolute;z-index:100;margin:0;padding:0;display:none;"></div>');
 };
-
-MarkerOverlappingRecognizer.prototype = {
-    constructor: MarkerOverlappingRecognizer,
+MarkerOverlapRecognizer.prototype = {
+    constructor: MarkerOverlapRecognizer,
 
     setMap: function(map) {
         var oldMap = this.getMap();
@@ -232,7 +231,7 @@ MarkerOverlappingRecognizer.prototype = {
         }).toUpperCase();
     },
 
-    _renderIntersectList: function(overlaped, offset) {
+    _renderIntersectList: function(overlaped, offset, marker) {
         if (!this._options.intersectList) return;
 
         var listLayer = this._overlapListEl;
@@ -309,7 +308,7 @@ MarkerOverlappingRecognizer.prototype = {
         }
 
         naver.maps.Event.stopDispatch(marker, 'click');
-        this._renderIntersectList(overlaped, offset);
+        this._renderIntersectList(overlaped, offset, marker);
         this._overlapInfoEl.hide();
 
         naver.maps.Event.trigger(this, 'overlap', overlaped);

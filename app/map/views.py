@@ -32,3 +32,8 @@ def compare(x, y):
 @food_map.route('/hello')
 def hello():
 	return 'hello food-map'
+
+
+@food_map.route('/example')
+def example():
+	return render_template('example/marker-overlapping-recognizer.html')
