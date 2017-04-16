@@ -19,8 +19,12 @@
     </div>
 </div>
 <div id="restaurantFeedback" class="center">
-    <button id="giveGoodFeedback" class="btn btn-primary" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-up"></span> <span id="goodFeedbackCount">{{ restaurant.good|default('0', true) }}</span></button>
-    <button id="giveBadFeedback" class="btn btn-danger" data-restaurant-id="{{ restaurant.id }}"><span class="glyphicon glyphicon-thumbs-down"></span> <span id="badFeedbackCount">{{ restaurant.bad|default('0', true) }}</span></button>
+    <button id="giveGoodFeedback" type="button" class="btn btn-primary" data-restaurant-id="{{ restaurant.id }}" data-toggle="tooltip" data-placement="bottom" title="추천하기">
+        <span class="glyphicon glyphicon-thumbs-up"></span> <span id="goodFeedbackCount">{{ restaurant.good|default('0', true) }}</span>
+    </button>
+    <button id="giveBadFeedback" type="button" class="btn btn-danger" data-restaurant-id="{{ restaurant.id }}" data-toggle="tooltip" data-placement="bottom" title="비추천하기">
+        <span class="glyphicon glyphicon-thumbs-down"></span> <span id="badFeedbackCount">{{ restaurant.bad|default('0', true) }}</span>
+    </button>
 </div>
 <div class="margin-top-20"></div>
 <div id="restaurantInfo">
