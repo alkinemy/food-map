@@ -35,6 +35,7 @@ function initMap() {
 
     var companyMarkerOptions = {
         position: new naver.maps.LatLng(37.5157873, 127.0991124),
+        icon: '{{ url_for('static', filename='food-map/image/company.png') }}',
         map: map
     };
     new naver.maps.Marker(companyMarkerOptions);
