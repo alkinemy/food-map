@@ -1,4 +1,6 @@
 var map = null;
+var markers = [];
+var selectedMarker = null;
 
 function initMap() {
     var mapOptions = {
@@ -35,6 +37,7 @@ function initMap() {
                 toastr.error('개발자에게 연락주세요 흑흑', '실패했습니다!', {"positionClass": "toast-bottom-center"})
             });
         });
+        markers.push(marker);
     }
     {% endfor %}
 }

@@ -1,27 +1,4 @@
 $(document).ready(function() {
-    $('#categorySelector').confirm({
-        title: '카테고리 선택',
-        content: '카테고리이이이이들',
-        type: 'green',
-        buttons: {
-            ok: {
-                text: '선택',
-                btnClass: 'btn-primary',
-                keys: ['enter'],
-                action: function() {
-                    console.log('the user clicked confirm');
-                }
-            },
-            cancel: {
-                text: '취소',
-                keys: ['esc'],
-                action: function() {
-                    console.log('the user clicked cancel');
-                }
-            }
-        }
-    });
-
     $('#restaurantDetailContent').on('click', '#giveGoodFeedback', function(event) {
         event.preventDefault();
 

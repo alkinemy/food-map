@@ -1,0 +1,31 @@
+$(document).ready(function() {
+    $('#categorySelector').confirm({
+        title: '카테고리 선택',
+        content: '{% include 'categories.html' %}',
+        type: 'green',
+        buttons: {
+            ok: {
+                text: '선택',
+                btnClass: 'btn-primary',
+                keys: ['enter'],
+                action: function() {
+                    $('#categorySelectForm').submit();
+                }
+            },
+            cancel: {
+                text: '취소',
+                keys: ['esc']
+            }
+        }
+    });
+
+    $('body').on('click', '#categoryAll', function() {
+        var checked = $(this).is(":checked");
+        if (checked) {
+            $('#categorySelectForm input[name="categories"]').prop('checked', true);
+        } else {
+            $('#categorySelectForm input[name="categories"]').prop('checked', false);
+        }
+    });
+
+});
