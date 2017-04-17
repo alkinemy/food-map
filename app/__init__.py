@@ -14,6 +14,8 @@ csrf = CSRFProtect()
 
 MAP_CLIENT_ID = os.environ.get('MAP_CLIENT_ID')
 
+MONGODB_HOST = os.getenv('MONGODB_HOST', '127.0.0.1')
+
 SECRET_KEY = str(datetime.now().timestamp())
 
 
@@ -23,7 +25,7 @@ def create_app():
 
 	app.config['MONGODB_SETTINGS'] = {
 		'db': 'food-map',
-		'host': '127.0.0.1'
+		'host': MONGODB_HOST
 	}
 	app.secret_key = SECRET_KEY
 

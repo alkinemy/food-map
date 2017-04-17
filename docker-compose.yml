@@ -1,0 +1,12 @@
+web:
+    build: .
+    ports:
+        - 5000:5000
+    volumes:
+        - /tmp/foodmap:/etc/foodmap
+    command:
+        - python run.py
+    environment:
+        - MAP_CLIENT_ID=
+        - MONGODB_HOST=
+    command: python run.py
