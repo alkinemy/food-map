@@ -27,9 +27,9 @@ var MarkerOverlapRecognizer = function(opts) {
             fillOpacity: 0.5
         },
         intersectNotice: true,
-        intersectNoticeTemplate: '<div style="border:solid 1px #333;background-color:#fff;padding:5px;"><em style="font-weight:bold;color:#f00;">{{count}}</em>개의 마커가 있습니다.</div>',
+        intersectNoticeTemplate: '<div style="width:180px;border:solid 1px #333;background-color:#fff;padding:5px;"><em style="font-weight:bold;color:#f00;">{{count}}</em>개의 마커가 있습니다.</div>',
         intersectList: true,
-        intersectListTemplate: '<div style="border:solid 1px #333;background-color:#fff;padding:5px;">'
+        intersectListTemplate: '<div style="width:200px;border:solid 1px #333;background-color:#fff;padding:5px;">'
             + '<ul style="list-style:none;margin:0;padding:0;">'
             + '{{#repeat}}'
             + '<li style="list-style:none;margin:0;padding:0;"><a href="#">{{order}}. {{title}}</a></li>'
